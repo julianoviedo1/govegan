@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_194939) do
+ActiveRecord::Schema.define(version: 2020_09_14_151326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_09_10_194939) do
     t.string "unit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "recipe_id", null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -59,10 +61,8 @@ ActiveRecord::Schema.define(version: 2020_09_10_194939) do
     t.string "video_url"
     t.text "steps"
     t.bigint "owner_id", null: false
-    t.bigint "ingredient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ingredient_id"], name: "index_recipes_on_ingredient_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -90,6 +90,11 @@ ActiveRecord::Schema.define(version: 2020_09_10_194939) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_admin", default: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "adress"
+    t.integer "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -97,9 +102,9 @@ ActiveRecord::Schema.define(version: 2020_09_10_194939) do
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "products", "recipes"
   add_foreign_key "products", "shops"
-  add_foreign_key "recipes", "ingredients"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
 end
