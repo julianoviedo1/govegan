@@ -16,6 +16,7 @@ user2 = User.create!(email:"owner@owner.com", password:"123456", first_name:"Luz
 user2.set_as_admin
 
 shop = Shop.new(owner: user2)
-shop.logo.attach(io: File.open('/GVWM.png'), filename: 'GVWM.png')
+file = URI.open('https://res.cloudinary.com/julianoviedo1/image/upload/v1600117411/G_V_W_M_bqxwdw.png')
+shop.logo.attach(io: file, filename: 'GVWM.png', content_type: 'image/png')
 shop.save!
 puts "Seed Finished"

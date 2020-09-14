@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'autoprefixer-rails'
+gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'font-awesome-sass', '~> 5.6.1'
