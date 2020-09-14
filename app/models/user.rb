@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :shop, dependent: :destroy
 
   def set_as_admin
-    user.is_admin = true
+    self.is_admin = true
   end
 
   def admin?

@@ -1,9 +1,17 @@
 class ProductsController < ApplicationController
-	# :index, :show, :create, :update, :destroy
+  # :index, :show, :create, :update, :destroy
+	before_action :set_product, only: [:show]
+	
 	def index
-		
+		@products = Product.all
 	end
 
 	def show
+	end
+
+	private
+
+	def set_product
+		@product = Product.find(params[:id])
 	end
 end

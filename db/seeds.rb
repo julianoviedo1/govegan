@@ -7,7 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Seed Started"
 
-User.new()
+# User.destroy_all
+# Shop.destroy_all
 
+user = User.create!(email:"client3@client.com", password:"123456", first_name:"Juana", last_name:"Rodriguez", adress: 'Llalala 1332 Pb 2', phone_number: 1545454545)
+user2 = User.create!(email:"owner@owner.com", password:"123456", first_name:"Luz", last_name:"Farji", adress: 'Local 382', phone_number: 1567754545)
 
+user2.set_as_admin
+
+shop = Shop.new(owner: user2)
+shop.logo.attach(io: File.open('/GVWM.png'), filename: 'GVWM.png')
+shop.save!
 puts "Seed Finished"
