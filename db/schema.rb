@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_210000) do
     t.string "video_url"
     t.text "steps"
     t.bigint "owner_id", null: false
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -99,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_210000) do
 
   create_table "shops", force: :cascade do |t|
     t.bigint "owner_id", null: false
+    t.string "name"
+    t.string "eslogan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

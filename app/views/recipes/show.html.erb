@@ -1,0 +1,13 @@
+<div class="card m-3">
+
+  <%#@recipe.name%>
+  <ul>
+    <%@ingredients.each do |ingredient|%>
+    <li><%=ingredient.name%>
+    <%=ingredient.quantity%>
+    <%=ingredient.unit%></li>
+    <%end%>
+  </ul>
+</div>
+
+<%console%>

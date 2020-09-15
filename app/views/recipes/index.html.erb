@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+  <div class="list-group list-group-flush m-3"></div>
+    <%@recipes.each do |recipe|%>
+      <%=link_to recipe_path(recipe.id) do%>
+        <div class="list-group-item d-flex">
+          <div class="d-inline-block h-100 ">
+            <%=cl_image_tag recipe.recipe_photo.key, class:"avatar"%>
+          </div>
+          <%=recipe.name%>
+          <%=recipe.steps%>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>
