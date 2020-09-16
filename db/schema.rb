@@ -67,14 +67,12 @@ ActiveRecord::Schema.define(version: 2020_09_14_210000) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.bigint "recipe_id", null: false
     t.string "name"
     t.text "description"
     t.integer "unit_price"
     t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipe_id"], name: "index_products_on_recipe_id"
     t.index ["shop_id"], name: "index_products_on_shop_id"
   end
 
@@ -128,7 +126,6 @@ ActiveRecord::Schema.define(version: 2020_09_14_210000) do
   add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "ingredients", "recipes"
-  add_foreign_key "products", "recipes"
   add_foreign_key "products", "shops"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"

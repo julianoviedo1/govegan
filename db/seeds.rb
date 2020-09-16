@@ -96,9 +96,23 @@ ingredient5for1.save!
 ingredient6for1.save!
 ingredient7for1.save!
 
-# Product 1
+# Products
 
+product1 = Product.new(
+  name: "🍪 COOKIES DE AVENA 🍪",
+  description: "Ricas y saludables cookies para la merienda, con banana avena y cacao",
+  unit_price: 60,
+  shop_id: shop.id
+)
 
+product2 = Product.new(
+  name: "🍪 COOKIES DE AVENA 🍪",
+  description: 'ricas pelotitas',
+  unit_price: 50,
+  shop_id: shop.id
+)
 
+product1.save!
+product2.save!
 
 puts "Seed Finished"

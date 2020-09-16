@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+  <div class="list-group list-group-flush m-3"></div>
+    <%@products.each do |product|%>
+      <%=link_to product_path(product.id) do%>
+        <div class="list-group-item d-flex">
+          <div class="d-inline-block h-100 ">
+            <%#=cl_image_tag product.product_photo.key, class:"avatar"%>
+          </div>
+          <%=product.name%>
+          <%=product.description%>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>

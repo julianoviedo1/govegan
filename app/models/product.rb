@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
-  belongs_to :recipe
   has_one :shop, dependent: :destroy
+  has_many_attached :product_photo
 end
