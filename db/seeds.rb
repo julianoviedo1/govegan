@@ -21,6 +21,9 @@ shop = Shop.new(owner_id: user2.id)
 file = URI.open('https://res.cloudinary.com/julianoviedo1/image/upload/v1600117411/G_V_W_M_bqxwdw.png')
 shop.logo.attach(io: file, filename: 'GVWM.png', content_type: 'image/png')
 shop.save!
+
+# recetas del owner Luz
+
 admin = User.find_by(first_name: 'Luz')
 recipe1 = Recipe.new(
   name: 'Croquetas de hojas de remolacha',
@@ -29,11 +32,14 @@ recipe1 = Recipe.new(
   - En un bowl poner todos los ingredientes. Mezclar bien.
   - En una fuente para horno con un poquito de aceite ir poniendo croquetas de tamaño que ustedes prefieran.
   Cocinar por 5/7 minutos.",
-  owner_id: admin.id
+  owner_id: admin.id,
+  video_url: "https://www.youtube.com/embed/ucRNNfc7mIE"
 )
 file = URI.open('https://res.cloudinary.com/julianoviedo1/image/upload/v1600199964/recipe1.jpg')
 recipe1.recipe_photo.attach(io: file, filename: 'recipe1.jpg', content_type: 'image/jpg')
 recipe1.save!
+
+# ingredientes para una receta
 
 recipe_id1 = Recipe.find_by(owner_id: admin.id)
 
@@ -57,7 +63,6 @@ ingredient3for1 = Ingredient.new(
   recipe_id: recipe_id1.id
 
 )
-
 # Agregar por defecto "quantity : a gusto"
 ingredient4for1 = Ingredient.new(
   name: 'Sal',
@@ -78,12 +83,10 @@ ingredient6for1 = Ingredient.new(
 )
 ingredient7for1 = Ingredient.new(
   name: 'Agua',
-  quantity: 1/4,
+  quantity: 1/4r,
   unit: 'taza',
   recipe_id: recipe_id1.id
-
 )
-
 
 ingredient1for1.save!
 ingredient2for1.save!
@@ -92,5 +95,10 @@ ingredient4for1.save!
 ingredient5for1.save!
 ingredient6for1.save!
 ingredient7for1.save!
+
+# Product 1
+
+
+
 
 puts "Seed Finished"
