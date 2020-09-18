@@ -106,7 +106,7 @@ product1 = Product.new(
 )
 
 product2 = Product.new(
-  name: "🍪 COOKIES DE AVENA 🍪",
+  name: "🍘 Pelotitas de choco 🍘",
   description: 'ricas pelotitas',
   unit_price: 50,
   shop_id: shop.id
