@@ -25,6 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticated?
-    redirect_to product_path unless login?
+    path  = Rails.application.routes.recognize_path(request.path)
+    # redirect_to_a products_path unless login?
+    # redirect_to action: 'index' unless login?
+    if path[:controller] == "pages"
+      redirect_to :controller => 'products', :action => 'index' unless login? 
+    end
   end
 end
