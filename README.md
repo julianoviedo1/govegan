@@ -58,3 +58,19 @@ GOVEGAN_DATABASE_PORT={}
 rails generate migration null_user_id_on_cart
 
 ruby script/generate migration AddPartNumberToProducts
+
+
+```bash
+docker pull postgres # bajar imagen
+docker image ls # listar imagenes
+
+docker build -t govegan /home/julianoviedo1/code/govegan -f /home/julianoviedo1/code/govegan/Dockerfile
+docker build -t govegan .
+
+docker run -d -e POSTGRES_PASSWORD=mipass -p 5432 postgres 
+
+docker logs CONTAINER_ID
+docker logs -f CONTAINER_ID # -f = follow
+
+docker run --entrypoint bash govegan
+```
