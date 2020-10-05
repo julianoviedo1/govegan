@@ -27,6 +27,7 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
+gem 'minitest', '~> 5.8', '>= 5.8.4'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
